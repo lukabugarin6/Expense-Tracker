@@ -31,6 +31,11 @@ export const Transaction = ({ transaction }) => {
         </div>
       </li>
       <style jsx>{`
+        .history-list-item__btn:focus {
+          opacity: 1;
+          transform: translateX(0);
+          width: 1.5rem;
+        }
         .history-list-item:hover .history-list-item__btn {
           opacity: 1;
           transform: translateX(0);
