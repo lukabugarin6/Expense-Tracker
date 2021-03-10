@@ -11,7 +11,7 @@ export const Transaction = ({ transaction }) => {
 
   return (
     <>
-      <li className="flex history-list-item">
+      <li className="flex history-list-item text-sm md:text-base">
         <div className="inline-flex justify-between w-full bg-tertiary overflow-hidden p-1.5 pl-4 rounded-lg relative">
           <span> {transaction.text}</span>
           <div className="flex">

@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { GlobalContext } from '../context/GlobalState';
 
 export const AddTransaction = () => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
 
+  const { addTransaction } = useContext(GlobalContext);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const newTransaction = {
+      id: Math.floor(Math.random() * 100000000),
+      text,
+      amount: +amount
+    }
+
+    addTransaction(newTransaction);
+    setText('');
+    setAmount('');
+  }
+
   return (
     <>
       <div className="bg-secondary p-6 rounded-2xl text-lg">
-        <h3 className="font-medium text-2xl mb-4">Add new transaction</h3>
-        <form>
+        <h3 className="font-medium text-xl md:text-2xl mb-4">Add new transaction</h3>
+        <form onSubmit={submitHandler}>
           <div className="flex flex-col">
             <div className="flex flex-col my-2 relative">
               <input
@@ -22,7 +39,7 @@ export const AddTransaction = () => {
                 htmlFor="text"
                 className={`${
                   text !== "" ? "notEmpty-input__label" : ""
-                } text-input text-base font-bold mb-1 absolute text-tertiary left-4 top-2 text-xl`}
+                } text-input text-base font-bold mb-1 absolute text-tertiary left-4 top-2 text-lg md:text-xl`}
               >
                 Text
               </label>
@@ -39,7 +56,7 @@ export const AddTransaction = () => {
                 htmlFor="amount"
                 className={`${
                   amount !== "" ? "notEmpty-input__label" : ""
-                } amount-input text-base font-bold mb-1 absolute text-tertiary left-4 top-2 text-xl`}
+                } amount-input text-base font-bold mb-1 absolute text-tertiary left-4 top-2 text-lg md:text-xl`}
               >
                 Amount <br />{" "}
               </label>

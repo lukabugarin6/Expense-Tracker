@@ -8,7 +8,7 @@ export const TransactionList = () => {
   return (
     <>
       <div>
-        <h3 className="text-3xl font-medium relative mb-6">
+        <h3 className="text-2xl md:text-3xl font-medium relative mb-6">
           History
           <span className="underline h-0.5 w-full absolute left-0 -bottom-2 mx-auto bg-white"></span>
         </h3>
